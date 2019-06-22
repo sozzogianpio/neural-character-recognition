@@ -18,6 +18,6 @@ g++ client.cpp -o client -lrt -pthread
 ```
 
 ## Authors
-Gianpio Sozzo
-Gianluca Bonifazi
-Mattia Campeggi
+- Gianpio Sozzo
+- Gianluca Bonifazi
+- Mattia Campeggi
