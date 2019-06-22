@@ -1,5 +1,6 @@
 # shared-memory-processes
-Processes share different buffers with use of semaphores
+Processes are designed to run into Raspberry Pi and their objective is to recognize words from images acquired by webcam.
+They share different buffers with use of semaphores.
 
 ## Prerequisites
 You must have `g++` compiler installed.
