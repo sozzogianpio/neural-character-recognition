@@ -15,25 +15,25 @@ You must have `g++` compiler installed.
 
 Move into folder where files are in and **firstly** compile and run `printer.cpp`:
 ```
-g++ printer.cpp -o printer -lrt -pthread
+g++ printer.cpp -o printer -lrt -pthread -lopencv_core -lopencv_highgui -lopencv_imgproc -llept -ltesseract -std=c++11
 ./printer
 ```
 
 Then compile and run `segmentation.cpp`:
 ```
-g++ segmentation.cpp -o segmentation -lrt -pthread
+g++ segmentation.cpp -o segmentation -lrt -pthread -lopencv_core -lopencv_highgui -lopencv_imgproc -llept -ltesseract -std=c++11
 ./segmentation
 ```
 
 Then compile and run `neural_network.cpp`:
 ```
-g++ neural_network.cpp -o neural_network -lrt -pthread
+g++ neural_network.cpp -o neural_network -lrt -pthread -lopencv_core -lopencv_highgui -lopencv_imgproc -llept -ltesseract -std=c++11
 ./neural_network
 ```
 
 At last, compile `webcam.cpp` and run when you want to capture an image:
 ```
-g++ webcam.cpp -o webcam -lrt -pthread
+g++ webcam.cpp -o webcam -lrt -pthread -lopencv_core -lopencv_highgui -lopencv_imgproc -llept -ltesseract -std=c++11
 ./webcam
 ```
 
