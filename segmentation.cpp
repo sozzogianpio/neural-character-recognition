@@ -53,9 +53,11 @@ list<Mat> detect_text(char * buffer){
 	Size size(300,200);
 
 	list<Mat> frameList;
+	Mat copy;
 	Mat rgb;
 
 	Mat small;
+	large.copyTo(copy);
 	cvtColor(large, small, CV_BGR2GRAY);
 
 	Mat grad;
@@ -94,9 +96,18 @@ list<Mat> detect_text(char * buffer){
 			Mat cropR;
 			resize(crop,cropR,size);
 			frameList.push_back(cropR);
+			Point2f pts[4];
+			rrect.points(pts);
+        
+			for (int i = 0; i < 4; i++)
+			{
+				line(copy, Point((int)pts[i].x, (int)pts[i].y), Point((int)pts[(i+1)%4].x, (int)pts[(i+1)%4].y), color, thickness);
+			}
         }        
     }
-
+	imshow("segmentation_text", copy);
+	waitKey(0);
+	destroyWindow("segmentation_text");
     return frameList;
 }
 
@@ -147,9 +158,11 @@ int main() {
 
 			// Lista di tutte le immagini contententi testo
 			list<Mat> text = detect_text(ptr_one);
-
 			list<Mat>::iterator it;
+			
 			for (it=text.begin(); it != text.end(); it++){
+				sleep(2);
+
 				// -----------------------------------------------------
 				sem_wait(sem_id_two);
 				cout << "--- Start -> SEZIONE CRITICA 2! ---" << endl;
